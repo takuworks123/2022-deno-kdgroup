@@ -6,14 +6,19 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 
+	
+<div class="bg_pattern Paper_v2"></div>
+
+
 <body>
+  <header>
   <h1 id = "month_op"></h1>
 
-  <div class="invite">
+<div class="invite">
     招待コード： <div id="invite_code_op"></div>
     <button id="invite_toggle"></button>
   </div>
-
+  </header>
 
 
   <!-- モーダルエリアここから -->
@@ -40,18 +45,23 @@
 
 
 
+  <div class="yohaku">
+
   <input id="comment_ip" type="text" placeholder="予定の内容" />
   <input id="sche_start_ip" type="datetime-local" />
   <!-- <input id="sche_end_ip" type="datetime-local" /> -->
   <button id="submit">送信</button>
   <button id="update">更新</button>
-  <button id="back"><前の月</button>
-  <button id="next">次の月></button>
+  </div>
+  <div class="nextmonth">
+    <button id="back">前の月</button>
+    <button id="next">次の月</button>
+  </div>
   <div id = "comment_op"></div>
   <div id = "result_op"></div>
 
   <table class="calendar">
-    <tr>
+    <tr class="fontsize_youbi">
       <th class="sunday">日</th> <th>月</th> <th>火</th> <th>水</th> <th>木</th> <th>金</th> <th class="saturday">土</th>
     </tr>
     <tr>
@@ -897,11 +907,13 @@
           let temp2 = temp[0].split('-');
           let slot = Number(temp2[2]) + zure;
 
+
           let temp3 = temp[1].split(':');
           let hour_minute = temp3[0] + ":" + temp3[1];
 
           if (flags[slot] == true){
             document.getElementById(`n${slot}_1`).textContent = user + " " + hour_minute
+            
             document.getElementById(`th${slot}_1`).style.backgroundColor = `${color}`
             document.getElementById(`c${slot}_1`).textContent = comment
             flags[slot] = false;
