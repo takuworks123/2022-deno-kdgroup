@@ -398,8 +398,8 @@ button{
 
 .reload:hover {
   color: #fff;
-  background-color: #b13131;
-  border-color: #b13131;
+  background-color: #c93838;
+  border-color: #c93838;
 }
 
 
@@ -529,4 +529,21 @@ button#back{
 .back:hover::before,
 .back:hover::after {
   left: 1.7em;
+}
+
+
+
+
+
+
+
+.delete_schedule {
+  color: #fff;
+  background-color: #eb2f00;
+  border-radius: 100vh;
+}
+
+.delete_schedule:hover {
+  color: #fff;
+  background: #b12300;
 }
