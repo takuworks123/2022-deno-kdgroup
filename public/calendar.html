@@ -11,14 +11,12 @@
 
 
 <body>
-  <header>
-  <h1 id = "month_op"></h1>
+  <h1 class="month_op" id = "month_op"></h1>
 
-<div class="invite">
-    招待コード： <div id="invite_code_op"></div>
-    <button id="invite_toggle"></button>
+  <div class="invite">
+    <nobr id="invite_code_op"></nobr>：招待コード<br>
+    <button class="invite_toggle" id="invite_toggle"></button>
   </div>
-  </header>
 
 
   <!-- モーダルエリアここから -->
@@ -28,13 +26,14 @@
       <div class="modalContents">
         <h1 id="modalH_group">初期設定</h1>
 
-        <button id="create_calendar">新しくカレンダーを作る</button>
+        <button class="create_calendar" id="create_calendar">新しくカレンダーを作る</button>
 
-        <p>―――――――――――――――――――</p>
+        <p>―――――――――――――――――――――――――――――</p>
 
         <p>招待コードで参加する</p>
-        <input id="invite_code_ip" type="text" />
-        <button id="join_calendar">参加する</button>
+        <input class="textbox" id="invite_code_ip" type="text" />
+        <button class="join_calendar" id="join_calendar">参加する</button>
+        <p></p>
       </div>
     </div>
   </section>
@@ -47,30 +46,67 @@
 
   <div class="yohaku">
 
-  <input id="comment_ip" type="text" placeholder="予定の内容" />
-  <input id="sche_start_ip" type="datetime-local" />
-  <!-- <input id="sche_end_ip" type="datetime-local" /> -->
-  <button id="submit">送信</button>
-  <button id="update">更新</button>
+    <p class="label_schedule">予定の内容</p>
+    <input class="textbox" id="comment_ip" type="text" placeholder="" />
+    <p class="label_time">予定の日付</p>
+    <input class="sche_start_ip" id="sche_start_ip" type="datetime-local" />
+    <!-- <input id="sche_end_ip" type="datetime-local" /> -->
+    <button class="submit" id="submit">送信</button>
+    <button class="reload" id="reload">更新</button>
+    <p></p>
+
   </div>
-  <div class="nextmonth">
-    <button id="back">前の月</button>
-    <button id="next">次の月</button>
+
+  <div class="change_month">
+    <button class="back" id="back">前の月</button>
+    <button class="next" id="next">次の月</button>
   </div>
 
   <table class="calendar">
-    <tr class="fontsize_youbi">
-      <th class="sunday">日</th> <th>月</th> <th>火</th> <th>水</th> <th>木</th> <th>金</th> <th class="saturday">土</th>
-    </tr>
+    <tr>
+      <th class="sunday">日</th>
+      <th class="other">月</th>
+      <th class="other">火</th>
+      <th class="other">水</th>
+      <th class="other">木</th>
+      <th class="other">金</th>
+      <th class="saturday">土</th>
+    </tr><a href="">
     <tr>
       <td>
         
         <table class="day">
           <tr>
-            <th><div id = "d1" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d1" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea1" class="modalArea">
+                <div id="modalBg1" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH1"></h1>
+                    <nobr id="delete1_1_temp"><button id="delete1_1" type="button" >削除</button></nobr> <nobr id="modalP1_1"></nobr><br>
+                    <nobr id="delete1_2_temp"><button id="delete1_2" type="button" >削除</button></nobr> <nobr id="modalP1_2"></nobr><br>
+                    <nobr id="delete1_3_temp"><button id="delete1_3" type="button" >削除</button></nobr> <nobr id="modalP1_3"></nobr><br>
+                    <nobr id="delete1_4_temp"><button id="delete1_4" type="button" >削除</button></nobr> <nobr id="modalP1_4"></nobr><br>
+                    <nobr id="delete1_5_temp"><button id="delete1_5" type="button" >削除</button></nobr> <nobr id="modalP1_5"></nobr>
+                  </div>
+                  <div id="closeModal1" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
-            <th id = "th1_1"><div id = "n1_1"></div><div id = "c1_1"></div></th>
+            <th id = "th1_1" ><div id = "n1_1"></div><div id = "c1_1"></div></th>
           </tr>
           <tr>
             <th id = "th1_2"><div id = "n1_2"></div><div id = "c1_2"></div></th>
@@ -84,7 +120,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d2" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d2" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea2" class="modalArea">
+                <div id="modalBg2" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH2"></h1>
+                    <nobr id="delete2_1_temp"><button id="delete2_1" type="button" >削除</button></nobr> <nobr id="modalP2_1"></nobr><br>
+                    <nobr id="delete2_2_temp"><button id="delete2_2" type="button" >削除</button></nobr> <nobr id="modalP2_2"></nobr><br>
+                    <nobr id="delete2_3_temp"><button id="delete2_3" type="button" >削除</button></nobr> <nobr id="modalP2_3"></nobr><br>
+                    <nobr id="delete2_4_temp"><button id="delete2_4" type="button" >削除</button></nobr> <nobr id="modalP2_4"></nobr><br>
+                    <nobr id="delete2_5_temp"><button id="delete2_5" type="button" >削除</button></nobr> <nobr id="modalP2_5"></nobr>
+                  </div>
+                  <div id="closeModal2" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th2_1"><div id = "n2_1"></div><div id = "c2_1"></div></th>
@@ -101,7 +163,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d3" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d3" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea3" class="modalArea">
+                <div id="modalBg3" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH3"></h1>
+                    <nobr id="delete3_1_temp"><button id="delete3_1" type="button" >削除</button></nobr> <nobr id="modalP3_1"></nobr><br>
+                    <nobr id="delete3_2_temp"><button id="delete3_2" type="button" >削除</button></nobr> <nobr id="modalP3_2"></nobr><br>
+                    <nobr id="delete3_3_temp"><button id="delete3_3" type="button" >削除</button></nobr> <nobr id="modalP3_3"></nobr><br>
+                    <nobr id="delete3_4_temp"><button id="delete3_4" type="button" >削除</button></nobr> <nobr id="modalP3_4"></nobr><br>
+                    <nobr id="delete3_5_temp"><button id="delete3_5" type="button" >削除</button></nobr> <nobr id="modalP3_5"></nobr>
+                  </div>
+                  <div id="closeModal3" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th3_1"><div id = "n3_1"></div><div id = "c3_1"></div></th>
@@ -118,7 +206,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d4" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d4" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea4" class="modalArea">
+                <div id="modalBg4" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH4"></h1>
+                    <nobr id="delete4_1_temp"><button id="delete4_1" type="button" >削除</button></nobr> <nobr id="modalP4_1"></nobr><br>
+                    <nobr id="delete4_2_temp"><button id="delete4_2" type="button" >削除</button></nobr> <nobr id="modalP4_2"></nobr><br>
+                    <nobr id="delete4_3_temp"><button id="delete4_3" type="button" >削除</button></nobr> <nobr id="modalP4_3"></nobr><br>
+                    <nobr id="delete4_4_temp"><button id="delete4_4" type="button" >削除</button></nobr> <nobr id="modalP4_4"></nobr><br>
+                    <nobr id="delete4_5_temp"><button id="delete4_5" type="button" >削除</button></nobr> <nobr id="modalP4_5"></nobr>
+                  </div>
+                  <div id="closeModal4" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th4_1"><div id = "n4_1"></div><div id = "c4_1"></div></th>
@@ -135,7 +249,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d5" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d5" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea5" class="modalArea">
+                <div id="modalBg5" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH5"></h1>
+                    <nobr id="delete5_1_temp"><button id="delete5_1" type="button" >削除</button></nobr> <nobr id="modalP5_1"></nobr><br>
+                    <nobr id="delete5_2_temp"><button id="delete5_2" type="button" >削除</button></nobr> <nobr id="modalP5_2"></nobr><br>
+                    <nobr id="delete5_3_temp"><button id="delete5_3" type="button" >削除</button></nobr> <nobr id="modalP5_3"></nobr><br>
+                    <nobr id="delete5_4_temp"><button id="delete5_4" type="button" >削除</button></nobr> <nobr id="modalP5_4"></nobr><br>
+                    <nobr id="delete5_5_temp"><button id="delete5_5" type="button" >削除</button></nobr> <nobr id="modalP5_5"></nobr>
+                  </div>
+                  <div id="closeModal5" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th5_1"><div id = "n5_1"></div><div id = "c5_1"></div></th>
@@ -152,7 +292,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d6" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d6" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea6" class="modalArea">
+                <div id="modalBg6" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH6"></h1>
+                    <nobr id="delete6_1_temp"><button id="delete6_1" type="button" >削除</button></nobr> <nobr id="modalP6_1"></nobr><br>
+                    <nobr id="delete6_2_temp"><button id="delete6_2" type="button" >削除</button></nobr> <nobr id="modalP6_2"></nobr><br>
+                    <nobr id="delete6_3_temp"><button id="delete6_3" type="button" >削除</button></nobr> <nobr id="modalP6_3"></nobr><br>
+                    <nobr id="delete6_4_temp"><button id="delete6_4" type="button" >削除</button></nobr> <nobr id="modalP6_4"></nobr><br>
+                    <nobr id="delete6_5_temp"><button id="delete6_5" type="button" >削除</button></nobr> <nobr id="modalP6_5"></nobr>
+                  </div>
+                  <div id="closeModal6" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th6_1"><div id = "n6_1"></div><div id = "c6_1"></div></th>
@@ -169,7 +335,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d7" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d7" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea7" class="modalArea">
+                <div id="modalBg7" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH7"></h1>
+                    <nobr id="delete7_1_temp"><button id="delete7_1" type="button" >削除</button></nobr> <nobr id="modalP7_1"></nobr><br>
+                    <nobr id="delete7_2_temp"><button id="delete7_2" type="button" >削除</button></nobr> <nobr id="modalP7_2"></nobr><br>
+                    <nobr id="delete7_3_temp"><button id="delete7_3" type="button" >削除</button></nobr> <nobr id="modalP7_3"></nobr><br>
+                    <nobr id="delete7_4_temp"><button id="delete7_4" type="button" >削除</button></nobr> <nobr id="modalP7_4"></nobr><br>
+                    <nobr id="delete7_5_temp"><button id="delete7_5" type="button" >削除</button></nobr> <nobr id="modalP7_5"></nobr>
+                  </div>
+                  <div id="closeModal7" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th7_1"><div id = "n7_1"></div><div id = "c7_1"></div></th>
@@ -190,7 +382,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d8" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d8" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea8" class="modalArea">
+                <div id="modalBg8" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH8"></h1>
+                    <nobr id="delete8_1_temp"><button id="delete8_1" type="button" >削除</button></nobr> <nobr id="modalP8_1"></nobr><br>
+                    <nobr id="delete8_2_temp"><button id="delete8_2" type="button" >削除</button></nobr> <nobr id="modalP8_2"></nobr><br>
+                    <nobr id="delete8_3_temp"><button id="delete8_3" type="button" >削除</button></nobr> <nobr id="modalP8_3"></nobr><br>
+                    <nobr id="delete8_4_temp"><button id="delete8_4" type="button" >削除</button></nobr> <nobr id="modalP8_4"></nobr><br>
+                    <nobr id="delete8_5_temp"><button id="delete8_5" type="button" >削除</button></nobr> <nobr id="modalP8_5"></nobr>
+                  </div>
+                  <div id="closeModal8" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th8_1"><div id = "n8_1"></div><div id = "c8_1"></div></th>
@@ -207,7 +425,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d9" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d9" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea9" class="modalArea">
+                <div id="modalBg9" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH9"></h1>
+                    <nobr id="delete9_1_temp"><button id="delete9_1" type="button" >削除</button></nobr> <nobr id="modalP9_1"></nobr><br>
+                    <nobr id="delete9_2_temp"><button id="delete9_2" type="button" >削除</button></nobr> <nobr id="modalP9_2"></nobr><br>
+                    <nobr id="delete9_3_temp"><button id="delete9_3" type="button" >削除</button></nobr> <nobr id="modalP9_3"></nobr><br>
+                    <nobr id="delete9_4_temp"><button id="delete9_4" type="button" >削除</button></nobr> <nobr id="modalP9_4"></nobr><br>
+                    <nobr id="delete9_5_temp"><button id="delete9_5" type="button" >削除</button></nobr> <nobr id="modalP9_5"></nobr>
+                  </div>
+                  <div id="closeModal9" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th9_1"><div id = "n9_1"></div><div id = "c9_1"></div></th>
@@ -224,7 +468,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d10" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d10" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea10" class="modalArea">
+                <div id="modalBg10" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH10"></h1>
+                    <nobr id="delete10_1_temp"><button id="delete10_1" type="button" >削除</button></nobr> <nobr id="modalP10_1"></nobr><br>
+                    <nobr id="delete10_2_temp"><button id="delete10_2" type="button" >削除</button></nobr> <nobr id="modalP10_2"></nobr><br>
+                    <nobr id="delete10_3_temp"><button id="delete10_3" type="button" >削除</button></nobr> <nobr id="modalP10_3"></nobr><br>
+                    <nobr id="delete10_4_temp"><button id="delete10_4" type="button" >削除</button></nobr> <nobr id="modalP10_4"></nobr><br>
+                    <nobr id="delete10_5_temp"><button id="delete10_5" type="button" >削除</button></nobr> <nobr id="modalP10_5"></nobr>
+                  </div>
+                  <div id="closeModal10" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th10_1"><div id = "n10_1"></div><div id = "c10_1"></div></th>
@@ -241,7 +511,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d11" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d11" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalAea11" class="modalArea">
+                <div id="modalBg11" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH11"></h1>
+                    <nobr id="delete11_1_temp"><button id="delete11_1" type="button" >削除</button></nobr> <nobr id="modalP11_1"></nobr><br>
+                    <nobr id="delete11_2_temp"><button id="delete11_2" type="button" >削除</button></nobr> <nobr id="modalP11_2"></nobr><br>
+                    <nobr id="delete11_3_temp"><button id="delete11_3" type="button" >削除</button></nobr> <nobr id="modalP11_3"></nobr><br>
+                    <nobr id="delete11_4_temp"><button id="delete11_4" type="button" >削除</button></nobr> <nobr id="modalP11_4"></nobr><br>
+                    <nobr id="delete11_5_temp"><button id="delete11_5" type="button" >削除</button></nobr> <nobr id="modalP11_5"></nobr>
+                  </div>
+                  <div id="closeModal11" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th11_1"><div id = "n11_1"></div><div id = "c11_1"></div></th>
@@ -258,7 +554,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d12" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d12" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea12" class="modalArea">
+                <div id="modalBg12" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH12"></h1>
+                    <nobr id="delete12_1_temp"><button id="delete12_1" type="button" >削除</button></nobr> <nobr id="modalP12_1"></nobr><br>
+                    <nobr id="delete12_2_temp"><button id="delete12_2" type="button" >削除</button></nobr> <nobr id="modalP12_2"></nobr><br>
+                    <nobr id="delete12_3_temp"><button id="delete12_3" type="button" >削除</button></nobr> <nobr id="modalP12_3"></nobr><br>
+                    <nobr id="delete12_4_temp"><button id="delete12_4" type="button" >削除</button></nobr> <nobr id="modalP12_4"></nobr><br>
+                    <nobr id="delete12_5_temp"><button id="delete12_5" type="button" >削除</button></nobr> <nobr id="modalP12_5"></nobr>
+                  </div>
+                  <div id="closeModal12" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th12_1"><div id = "n12_1"></div><div id = "c12_1"></div></th>
@@ -275,7 +597,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d13" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d13" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea13" class="modalArea">
+                <div id="modalBg13" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH13"></h1>
+                    <nobr id="delete13_1_temp"><button id="delete13_1" type="button" >削除</button></nobr> <nobr id="modalP13_1"></nobr><br>
+                    <nobr id="delete13_2_temp"><button id="delete13_2" type="button" >削除</button></nobr> <nobr id="modalP13_2"></nobr><br>
+                    <nobr id="delete13_3_temp"><button id="delete13_3" type="button" >削除</button></nobr> <nobr id="modalP13_3"></nobr><br>
+                    <nobr id="delete13_4_temp"><button id="delete13_4" type="button" >削除</button></nobr> <nobr id="modalP13_4"></nobr><br>
+                    <nobr id="delete13_5_temp"><button id="delete13_5" type="button" >削除</button></nobr> <nobr id="modalP13_5"></nobr>
+                  </div>
+                  <div id="closeModal13" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th13_1"><div id = "n13_1"></div><div id = "c13_1"></div></th>
@@ -292,7 +640,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d14" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d14" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea14" class="modalArea">
+                <div id="modalBg14" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH14"></h1>
+                    <nobr id="delete14_1_temp"><button id="delete14_1" type="button" >削除</button></nobr> <nobr id="modalP14_1"></nobr><br>
+                    <nobr id="delete14_2_temp"><button id="delete14_2" type="button" >削除</button></nobr> <nobr id="modalP14_2"></nobr><br>
+                    <nobr id="delete14_3_temp"><button id="delete14_3" type="button" >削除</button></nobr> <nobr id="modalP14_3"></nobr><br>
+                    <nobr id="delete14_4_temp"><button id="delete14_4" type="button" >削除</button></nobr> <nobr id="modalP14_4"></nobr><br>
+                    <nobr id="delete14_5_temp"><button id="delete14_5" type="button" >削除</button></nobr> <nobr id="modalP14_5"></nobr>
+                  </div>
+                  <div id="closeModal14" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th14_1"><div id = "n14_1"></div><div id = "c14_1"></div></th>
@@ -313,7 +687,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d15" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d15" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea15" class="modalArea">
+                <div id="modalBg15" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH15"></h1>
+                    <nobr id="delete15_1_temp"><button id="delete15_1" type="button" >削除</button></nobr> <nobr id="modalP15_1"></nobr><br>
+                    <nobr id="delete15_2_temp"><button id="delete15_2" type="button" >削除</button></nobr> <nobr id="modalP15_2"></nobr><br>
+                    <nobr id="delete15_3_temp"><button id="delete15_3" type="button" >削除</button></nobr> <nobr id="modalP15_3"></nobr><br>
+                    <nobr id="delete15_4_temp"><button id="delete15_4" type="button" >削除</button></nobr> <nobr id="modalP15_4"></nobr><br>
+                    <nobr id="delete15_5_temp"><button id="delete15_5" type="button" >削除</button></nobr> <nobr id="modalP15_5"></nobr>
+                  </div>
+                  <div id="closeModal15" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th15_1"><div id = "n15_1"></div><div id = "c15_1"></div></th>
@@ -330,7 +730,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d16" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d16" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea16" class="modalArea">
+                <div id="modalBg16" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH16"></h1>
+                    <nobr id="delete16_1_temp"><button id="delete16_1" type="button" >削除</button></nobr> <nobr id="modalP16_1"></nobr><br>
+                    <nobr id="delete16_2_temp"><button id="delete16_2" type="button" >削除</button></nobr> <nobr id="modalP16_2"></nobr><br>
+                    <nobr id="delete16_3_temp"><button id="delete16_3" type="button" >削除</button></nobr> <nobr id="modalP16_3"></nobr><br>
+                    <nobr id="delete16_4_temp"><button id="delete16_4" type="button" >削除</button></nobr> <nobr id="modalP16_4"></nobr><br>
+                    <nobr id="delete16_5_temp"><button id="delete16_5" type="button" >削除</button></nobr> <nobr id="modalP16_5"></nobr>
+                  </div>
+                  <div id="closeModal16" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th16_1"><div id = "n16_1"></div><div id = "c16_1"></div></th>
@@ -347,7 +773,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d17" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d17" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea17" class="modalArea">
+                <div id="modalBg17" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH17"></h1>
+                    <nobr id="delete17_1_temp"><button id="delete17_1" type="button" >削除</button></nobr> <nobr id="modalP17_1"></nobr><br>
+                    <nobr id="delete17_2_temp"><button id="delete17_2" type="button" >削除</button></nobr> <nobr id="modalP17_2"></nobr><br>
+                    <nobr id="delete17_3_temp"><button id="delete17_3" type="button" >削除</button></nobr> <nobr id="modalP17_3"></nobr><br>
+                    <nobr id="delete17_4_temp"><button id="delete17_4" type="button" >削除</button></nobr> <nobr id="modalP17_4"></nobr><br>
+                    <nobr id="delete17_5_temp"><button id="delete17_5" type="button" >削除</button></nobr> <nobr id="modalP17_5"></nobr>
+                  </div>
+                  <div id="closeModal17" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th17_1"><div id = "n17_1"></div><div id = "c17_1"></div></th>
@@ -364,7 +816,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d18" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d18" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea18" class="modalArea">
+                <div id="modalBg18" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH18"></h1>
+                    <nobr id="delete18_1_temp"><button id="delete18_1" type="button" >削除</button></nobr> <nobr id="modalP18_1"></nobr><br>
+                    <nobr id="delete18_2_temp"><button id="delete18_2" type="button" >削除</button></nobr> <nobr id="modalP18_2"></nobr><br>
+                    <nobr id="delete18_3_temp"><button id="delete18_3" type="button" >削除</button></nobr> <nobr id="modalP18_3"></nobr><br>
+                    <nobr id="delete18_4_temp"><button id="delete18_4" type="button" >削除</button></nobr> <nobr id="modalP18_4"></nobr><br>
+                    <nobr id="delete18_5_temp"><button id="delete18_5" type="button" >削除</button></nobr> <nobr id="modalP18_5"></nobr>
+                  </div>
+                  <div id="closeModal18" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th18_1"><div id = "n18_1"></div><div id = "c18_1"></div></th>
@@ -381,7 +859,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d19" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d19" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea19" class="modalArea">
+                <div id="modalBg19" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH19"></h1>
+                    <nobr id="delete19_1_temp"><button id="delete19_1" type="button" >削除</button></nobr> <nobr id="modalP19_1"></nobr><br>
+                    <nobr id="delete19_2_temp"><button id="delete19_2" type="button" >削除</button></nobr> <nobr id="modalP19_2"></nobr><br>
+                    <nobr id="delete19_3_temp"><button id="delete19_3" type="button" >削除</button></nobr> <nobr id="modalP19_3"></nobr><br>
+                    <nobr id="delete19_4_temp"><button id="delete19_4" type="button" >削除</button></nobr> <nobr id="modalP19_4"></nobr><br>
+                    <nobr id="delete19_5_temp"><button id="delete19_5" type="button" >削除</button></nobr> <nobr id="modalP19_5"></nobr>
+                  </div>
+                  <div id="closeModal19" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th19_1"><div id = "n19_1"></div><div id = "c19_1"></div></th>
@@ -398,7 +902,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d20" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d20" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea20" class="modalArea">
+                <div id="modalBg20" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH20"></h1>
+                    <nobr id="delete20_1_temp"><button id="delete20_1" type="button" >削除</button></nobr> <nobr id="modalP20_1"></nobr><br>
+                    <nobr id="delete20_2_temp"><button id="delete20_2" type="button" >削除</button></nobr> <nobr id="modalP20_2"></nobr><br>
+                    <nobr id="delete20_3_temp"><button id="delete20_3" type="button" >削除</button></nobr> <nobr id="modalP20_3"></nobr><br>
+                    <nobr id="delete20_4_temp"><button id="delete20_4" type="button" >削除</button></nobr> <nobr id="modalP20_4"></nobr><br>
+                    <nobr id="delete20_5_temp"><button id="delete20_5" type="button" >削除</button></nobr> <nobr id="modalP20_5"></nobr>
+                  </div>
+                  <div id="closeModal20" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th20_1"><div id = "n20_1"></div><div id = "c20_1"></div></th>
@@ -415,7 +945,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d21" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d21" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea21" class="modalArea">
+                <div id="modalBg21" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH21"></h1>
+                    <nobr id="delete21_1_temp"><button id="delete21_1" type="button" >削除</button></nobr> <nobr id="modalP21_1"></nobr><br>
+                    <nobr id="delete21_2_temp"><button id="delete21_2" type="button" >削除</button></nobr> <nobr id="modalP21_2"></nobr><br>
+                    <nobr id="delete21_3_temp"><button id="delete21_3" type="button" >削除</button></nobr> <nobr id="modalP21_3"></nobr><br>
+                    <nobr id="delete21_4_temp"><button id="delete21_4" type="button" >削除</button></nobr> <nobr id="modalP21_4"></nobr><br>
+                    <nobr id="delete21_5_temp"><button id="delete21_5" type="button" >削除</button></nobr> <nobr id="modalP21_5"></nobr>
+                  </div>
+                  <div id="closeModal21" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th21_1"><div id = "n21_1"></div><div id = "c21_1"></div></th>
@@ -434,7 +990,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d22" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d22" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea22" class="modalArea">
+                <div id="modalBg22" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH22"></h1>
+                    <nobr id="delete22_1_temp"><button id="delete22_1" type="button" >削除</button></nobr> <nobr id="modalP22_1"></nobr><br>
+                    <nobr id="delete22_2_temp"><button id="delete22_2" type="button" >削除</button></nobr> <nobr id="modalP22_2"></nobr><br>
+                    <nobr id="delete22_3_temp"><button id="delete22_3" type="button" >削除</button></nobr> <nobr id="modalP22_3"></nobr><br>
+                    <nobr id="delete22_4_temp"><button id="delete22_4" type="button" >削除</button></nobr> <nobr id="modalP22_4"></nobr><br>
+                    <nobr id="delete22_5_temp"><button id="delete22_5" type="button" >削除</button></nobr> <nobr id="modalP22_5"></nobr>
+                  </div>
+                  <div id="closeModal22" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th22_1"><div id = "n22_1"></div><div id = "c22_1"></div></th>
@@ -451,7 +1033,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d23" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d23" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea23" class="modalArea">
+                <div id="modalBg23" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH23"></h1>
+                    <nobr id="delete23_1_temp"><button id="delete23_1" type="button" >削除</button></nobr> <nobr id="modalP23_1"></nobr><br>
+                    <nobr id="delete23_2_temp"><button id="delete23_2" type="button" >削除</button></nobr> <nobr id="modalP23_2"></nobr><br>
+                    <nobr id="delete23_3_temp"><button id="delete23_3" type="button" >削除</button></nobr> <nobr id="modalP23_3"></nobr><br>
+                    <nobr id="delete23_4_temp"><button id="delete23_4" type="button" >削除</button></nobr> <nobr id="modalP23_4"></nobr><br>
+                    <nobr id="delete23_5_temp"><button id="delete23_5" type="button" >削除</button></nobr> <nobr id="modalP23_5"></nobr>
+                  </div>
+                  <div id="closeModal23" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th23_1"><div id = "n23_1"></div><div id = "c23_1"></div></th>
@@ -597,7 +1205,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d27" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d27" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea27" class="modalArea">
+                <div id="modalBg27" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH27"></h1>
+                    <nobr id="delete27_1_temp"><button id="delete27_1" type="button" >削除</button></nobr> <nobr id="modalP27_1"></nobr><br>
+                    <nobr id="delete27_2_temp"><button id="delete27_2" type="button" >削除</button></nobr> <nobr id="modalP27_2"></nobr><br>
+                    <nobr id="delete27_3_temp"><button id="delete27_3" type="button" >削除</button></nobr> <nobr id="modalP27_3"></nobr><br>
+                    <nobr id="delete27_4_temp"><button id="delete27_4" type="button" >削除</button></nobr> <nobr id="modalP27_4"></nobr><br>
+                    <nobr id="delete27_5_temp"><button id="delete27_5" type="button" >削除</button></nobr> <nobr id="modalP27_5"></nobr>
+                  </div>
+                  <div id="closeModal27" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th27_1"><div id = "n27_1"></div><div id = "c27_1"></div></th>
@@ -614,7 +1248,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d28" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d28" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea28" class="modalArea">
+                <div id="modalBg28" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH28"></h1>
+                    <nobr id="delete28_1_temp"><button id="delete28_1" type="button" >削除</button></nobr> <nobr id="modalP28_1"></nobr><br>
+                    <nobr id="delete28_2_temp"><button id="delete28_2" type="button" >削除</button></nobr> <nobr id="modalP28_2"></nobr><br>
+                    <nobr id="delete28_3_temp"><button id="delete28_3" type="button" >削除</button></nobr> <nobr id="modalP28_3"></nobr><br>
+                    <nobr id="delete28_4_temp"><button id="delete28_4" type="button" >削除</button></nobr> <nobr id="modalP28_4"></nobr><br>
+                    <nobr id="delete28_5_temp"><button id="delete28_5" type="button" >削除</button></nobr> <nobr id="modalP28_5"></nobr>
+                  </div>
+                  <div id="closeModal28" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th28_1"><div id = "n28_1"></div><div id = "c28_1"></div></th>
@@ -633,7 +1293,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d29" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d29" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea29" class="modalArea">
+                <div id="modalBg29" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH29"></h1>
+                    <nobr id="delete29_1_temp"><button id="delete29_1" type="button" >削除</button></nobr> <nobr id="modalP29_1"></nobr><br>
+                    <nobr id="delete29_2_temp"><button id="delete29_2" type="button" >削除</button></nobr> <nobr id="modalP29_2"></nobr><br>
+                    <nobr id="delete29_3_temp"><button id="delete29_3" type="button" >削除</button></nobr> <nobr id="modalP29_3"></nobr><br>
+                    <nobr id="delete29_4_temp"><button id="delete29_4" type="button" >削除</button></nobr> <nobr id="modalP29_4"></nobr><br>
+                    <nobr id="delete29_5_temp"><button id="delete29_5" type="button" >削除</button></nobr> <nobr id="modalP29_5"></nobr>
+                  </div>
+                  <div id="closeModal29" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th29_1"><div id = "n29_1"></div><div id = "c29_1"></div></th>
@@ -650,7 +1336,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d30" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d30" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea30" class="modalArea">
+                <div id="modalBg30" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH30"></h1>
+                    <nobr id="delete30_1_temp"><button id="delete30_1" type="button" >削除</button></nobr> <nobr id="modalP30_1"></nobr><br>
+                    <nobr id="delete30_2_temp"><button id="delete30_2" type="button" >削除</button></nobr> <nobr id="modalP30_2"></nobr><br>
+                    <nobr id="delete30_3_temp"><button id="delete30_3" type="button" >削除</button></nobr> <nobr id="modalP30_3"></nobr><br>
+                    <nobr id="delete30_4_temp"><button id="delete30_4" type="button" >削除</button></nobr> <nobr id="modalP30_4"></nobr><br>
+                    <nobr id="delete30_5_temp"><button id="delete30_5" type="button" >削除</button></nobr> <nobr id="modalP30_5"></nobr>
+                  </div>
+                  <div id="closeModal30" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th30_1"><div id = "n30_1"></div><div id = "c30_1"></div></th>
@@ -667,7 +1379,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d31" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d31" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea31" class="modalArea">
+                <div id="modalBg31" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH31"></h1>
+                    <nobr id="delete31_1_temp"><button id="delete31_1" type="button" >削除</button></nobr> <nobr id="modalP31_1"></nobr><br>
+                    <nobr id="delete31_2_temp"><button id="delete31_2" type="button" >削除</button></nobr> <nobr id="modalP31_2"></nobr><br>
+                    <nobr id="delete31_3_temp"><button id="delete31_3" type="button" >削除</button></nobr> <nobr id="modalP31_3"></nobr><br>
+                    <nobr id="delete31_4_temp"><button id="delete31_4" type="button" >削除</button></nobr> <nobr id="modalP31_4"></nobr><br>
+                    <nobr id="delete31_5_temp"><button id="delete31_5" type="button" >削除</button></nobr> <nobr id="modalP31_5"></nobr>
+                  </div>
+                  <div id="closeModal31" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th31_1"><div id = "n31_1"></div><div id = "c31_1"></div></th>
@@ -684,7 +1422,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d32" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d32" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea32" class="modalArea">
+                <div id="modalBg32" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH32"></h1>
+                    <nobr id="delete32_1_temp"><button id="delete32_1" type="button" >削除</button></nobr> <nobr id="modalP32_1"></nobr><br>
+                    <nobr id="delete32_2_temp"><button id="delete32_2" type="button" >削除</button></nobr> <nobr id="modalP32_2"></nobr><br>
+                    <nobr id="delete32_3_temp"><button id="delete32_3" type="button" >削除</button></nobr> <nobr id="modalP32_3"></nobr><br>
+                    <nobr id="delete32_4_temp"><button id="delete32_4" type="button" >削除</button></nobr> <nobr id="modalP32_4"></nobr><br>
+                    <nobr id="delete32_5_temp"><button id="delete32_5" type="button" >削除</button></nobr> <nobr id="modalP32_5"></nobr>
+                  </div>
+                  <div id="closeModal32" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th32_1"><div id = "n32_1"></div><div id = "c32_1"></div></th>
@@ -701,7 +1465,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d33" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d33" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea33" class="modalArea">
+                <div id="modalBg33" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH33"></h1>
+                    <nobr id="delete33_1_temp"><button id="delete33_1" type="button" >削除</button></nobr> <nobr id="modalP33_1"></nobr><br>
+                    <nobr id="delete33_2_temp"><button id="delete33_2" type="button" >削除</button></nobr> <nobr id="modalP33_2"></nobr><br>
+                    <nobr id="delete33_3_temp"><button id="delete33_3" type="button" >削除</button></nobr> <nobr id="modalP33_3"></nobr><br>
+                    <nobr id="delete33_4_temp"><button id="delete33_4" type="button" >削除</button></nobr> <nobr id="modalP33_4"></nobr><br>
+                    <nobr id="delete33_5_temp"><button id="delete33_5" type="button" >削除</button></nobr> <nobr id="modalP33_5"></nobr>
+                  </div>
+                  <div id="closeModal33" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th33_1"><div id = "n33_1"></div><div id = "c33_1"></div></th>
@@ -718,7 +1508,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d34" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d34" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea34" class="modalArea">
+                <div id="modalBg34" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH34"></h1>
+                    <nobr id="delete34_1_temp"><button id="delete34_1" type="button" >削除</button></nobr> <nobr id="modalP34_1"></nobr><br>
+                    <nobr id="delete34_2_temp"><button id="delete34_2" type="button" >削除</button></nobr> <nobr id="modalP34_2"></nobr><br>
+                    <nobr id="delete34_3_temp"><button id="delete34_3" type="button" >削除</button></nobr> <nobr id="modalP34_3"></nobr><br>
+                    <nobr id="delete34_4_temp"><button id="delete34_4" type="button" >削除</button></nobr> <nobr id="modalP34_4"></nobr><br>
+                    <nobr id="delete34_5_temp"><button id="delete34_5" type="button" >削除</button></nobr> <nobr id="modalP34_5"></nobr>
+                  </div>
+                  <div id="closeModal34" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th34_1"><div id = "n34_1"></div><div id = "c34_1"></div></th>
@@ -735,8 +1551,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d35" class = "daynum"></div></th>
-          </tr>
+            <th>
+              
+              <div id = "d35" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea35" class="modalArea">
+                <div id="modalBg35" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH35"></h1>
+                    <nobr id="delete35_1_temp"><button id="delete35_1" type="button" >削除</button></nobr> <nobr id="modalP35_1"></nobr><br>
+                    <nobr id="delete35_2_temp"><button id="delete35_2" type="button" >削除</button></nobr> <nobr id="modalP35_2"></nobr><br>
+                    <nobr id="delete35_3_temp"><button id="delete35_3" type="button" >削除</button></nobr> <nobr id="modalP35_3"></nobr><br>
+                    <nobr id="delete35_4_temp"><button id="delete35_4" type="button" >削除</button></nobr> <nobr id="modalP35_4"></nobr><br>
+                    <nobr id="delete35_5_temp"><button id="delete35_5" type="button" >削除</button></nobr> <nobr id="modalP35_5"></nobr>
+                  </div>
+                  <div id="closeModal35" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           <tr>
             <th id = "th35_1"><div id = "n35_1"></div><div id = "c35_1"></div></th>
           </tr>
@@ -754,7 +1595,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d36" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d36" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea36" class="modalArea">
+                <div id="modalBg36" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH36"></h1>
+                    <nobr id="delete36_1_temp"><button id="delete36_1" type="button" >削除</button></nobr> <nobr id="modalP36_1"></nobr><br>
+                    <nobr id="delete36_2_temp"><button id="delete36_2" type="button" >削除</button></nobr> <nobr id="modalP36_2"></nobr><br>
+                    <nobr id="delete36_3_temp"><button id="delete36_3" type="button" >削除</button></nobr> <nobr id="modalP36_3"></nobr><br>
+                    <nobr id="delete36_4_temp"><button id="delete36_4" type="button" >削除</button></nobr> <nobr id="modalP36_4"></nobr><br>
+                    <nobr id="delete36_5_temp"><button id="delete36_5" type="button" >削除</button></nobr> <nobr id="modalP36_5"></nobr>
+                  </div>
+                  <div id="closeModal36" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th36_1"><div id = "n36_1"></div><div id = "c36_1"></div></th>
@@ -771,7 +1638,33 @@
 
         <table class="day">
           <tr>
-            <th><div id = "d37" class = "daynum"></div></th>
+            <th>
+              
+              <div id = "d37" class = "daynum"></div>
+
+              <!-- モーダルエリアここから -->
+              <section id="modalArea37" class="modalArea">
+                <div id="modalBg37" class="modalBg"></div>
+                <div class="modalWrapper">
+                  <div class="modalContents">
+                    <h1 id="modalH37"></h1>
+                    <nobr id="delete37_1_temp"><button id="delete37_1" type="button" >削除</button></nobr> <nobr id="modalP37_1"></nobr><br>
+                    <nobr id="delete37_2_temp"><button id="delete37_2" type="button" >削除</button></nobr> <nobr id="modalP37_2"></nobr><br>
+                    <nobr id="delete37_3_temp"><button id="delete37_3" type="button" >削除</button></nobr> <nobr id="modalP37_3"></nobr><br>
+                    <nobr id="delete37_4_temp"><button id="delete37_4" type="button" >削除</button></nobr> <nobr id="modalP37_4"></nobr><br>
+                    <nobr id="delete37_5_temp"><button id="delete37_5" type="button" >削除</button></nobr> <nobr id="modalP37_5"></nobr>
+                  </div>
+                  <div id="closeModal37" class="closeModal">
+                    ×
+                  </div>
+                </div>
+              </section>
+              <!-- モーダルエリアここまで -->
+
+              <!-- ↓body閉じタグ直前でjQueryを読み込む -->
+              <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            
+            </th>
           </tr>
           <tr>
             <th id = "th37_1"><div id = "n37_1"></div><div id = "c37_1"></div></th>
@@ -980,13 +1873,18 @@
       group = data[1];
       colorID = data[2];
 
-      let result_reload = await reload();
-      
-      if (result_reload == false){
-        $('#modalArea_group').fadeIn(200); // ポップアップを表示
+      if (group == undefined){
+        location.href = 'login.html';
 
       }else{
-        await reload();
+        let result_reload = await reload();
+        
+        if (result_reload == false){
+          $('#modalArea_group').fadeIn(200); // ポップアップを表示
+
+        }else{
+          await reload();
+        }
       }
     }
 
@@ -1027,7 +1925,7 @@
       }
     }
 
-    document.querySelector("#update").onclick = async (event) => {
+    document.querySelector("#reload").onclick = async (event) => {
       await reload();
     }
 
@@ -1061,10 +1959,12 @@
 
       if (comment.includes('||') || comment.includes('@@')){
         alert('使用できない記号が含まれています');
+      }else if (comment == ""){
+        alert('予定の内容を記入してください');
       }else{
 
         if (sche_start == ""){
-          alert("日付を設定してください");
+          alert("日付を記入してください");
         }else{
 
           if (sche_end == ""){
@@ -1293,8 +2193,77 @@
     }
 
 
-    // 日付をクリックでpopup関数が起動
+    // 日付をクリックでpopup_day関数が起動
     $(function () {
+      $('#d1').click(async function(){ await popup_day(1); $('#modalArea1').fadeIn(200); });
+      $('#closeModal1 , #modalBg1').click(function(){ $('#modalArea1').fadeOut(200); });
+
+      $('#d2').click(async function(){ await popup_day(2); $('#modalArea2').fadeIn(200); });
+      $('#closeModal2 , #modalBg2').click(function(){ $('#modalArea2').fadeOut(200); });
+
+      $('#d3').click(async function(){ await popup_day(3); $('#modalArea3').fadeIn(200); });
+      $('#closeModal3 , #modalBg3').click(function(){ $('#modalArea3').fadeOut(200); });
+
+      $('#d4').click(async function(){ await popup_day(4); $('#modalArea4').fadeIn(200); });
+      $('#closeModal4 , #modalBg4').click(function(){ $('#modalArea4').fadeOut(200); });
+
+      $('#d5').click(async function(){ await popup_day(5); $('#modalArea5').fadeIn(200); });
+      $('#closeModal5 , #modalBg5').click(function(){ $('#modalArea5').fadeOut(200); });
+
+      $('#d6').click(async function(){ await popup_day(6); $('#modalArea6').fadeIn(200); });
+      $('#closeModal6 , #modalBg6').click(function(){ $('#modalArea6').fadeOut(200); });
+
+      $('#d7').click(async function(){ await popup_day(7); $('#modalArea7').fadeIn(200); });
+      $('#closeModal7 , #modalBg7').click(function(){ $('#modalArea7').fadeOut(200); });
+
+      $('#d8').click(async function(){ await popup_day(8); $('#modalArea8').fadeIn(200); });
+      $('#closeModal8 , #modalBg8').click(function(){ $('#modalArea8').fadeOut(200); });
+
+      $('#d9').click(async function(){ await popup_day(9); $('#modalArea9').fadeIn(200); });
+      $('#closeModal9 , #modalBg9').click(function(){ $('#modalArea9').fadeOut(200); });
+
+      $('#d10').click(async function(){ await popup_day(10); $('#modalArea10').fadeIn(200); });
+      $('#closeModal10 , #modalBg10').click(function(){ $('#modalArea10').fadeOut(200); });
+
+      $('#d11').click(async function(){ await popup_day(11); $('#modalArea11').fadeIn(200); });
+      $('#closeModal11 , #modalBg11').click(function(){ $('#modalArea11').fadeOut(200); });
+
+      $('#d12').click(async function(){ await popup_day(12); $('#modalArea12').fadeIn(200); });
+      $('#closeModal12 , #modalBg12').click(function(){ $('#modalArea12').fadeOut(200); });
+
+      $('#d13').click(async function(){ await popup_day(13); $('#modalArea13').fadeIn(200); });
+      $('#closeModal13 , #modalBg13').click(function(){ $('#modalArea13').fadeOut(200); });
+
+      $('#d14').click(async function(){ await popup_day(14); $('#modalArea14').fadeIn(200); });
+      $('#closeModal14 , #modalBg14').click(function(){ $('#modalArea14').fadeOut(200); });
+
+      $('#d15').click(async function(){ await popup_day(15); $('#modalArea15').fadeIn(200); });
+      $('#closeModal15 , #modalBg15').click(function(){ $('#modalArea15').fadeOut(200); });
+
+      $('#d16').click(async function(){ await popup_day(16); $('#modalArea16').fadeIn(200); });
+      $('#closeModal16 , #modalBg16').click(function(){ $('#modalArea16').fadeOut(200); });
+
+      $('#d17').click(async function(){ await popup_day(17); $('#modalArea17').fadeIn(200); });
+      $('#closeModal17 , #modalBg17').click(function(){ $('#modalArea17').fadeOut(200); });
+
+      $('#d18').click(async function(){ await popup_day(18); $('#modalArea18').fadeIn(200); });
+      $('#closeModal18 , #modalBg18').click(function(){ $('#modalArea18').fadeOut(200); });
+
+      $('#d19').click(async function(){ await popup_day(19); $('#modalArea19').fadeIn(200); });
+      $('#closeModal19 , #modalBg19').click(function(){ $('#modalArea19').fadeOut(200); });
+
+      $('#d20').click(async function(){ await popup_day(20); $('#modalArea20').fadeIn(200); });
+      $('#closeModal20 , #modalBg20').click(function(){ $('#modalArea20').fadeOut(200); });
+
+      $('#d21').click(async function(){ await popup_day(21); $('#modalArea21').fadeIn(200); });
+      $('#closeModal21 , #modalBg21').click(function(){ $('#modalArea21').fadeOut(200); });
+
+      $('#d22').click(async function(){ await popup_day(22); $('#modalArea22').fadeIn(200); });
+      $('#closeModal22 , #modalBg22').click(function(){ $('#modalArea22').fadeOut(200); });
+
+      $('#d23').click(async function(){ await popup_day(23); $('#modalArea23').fadeIn(200); });
+      $('#closeModal23 , #modalBg23').click(function(){ $('#modalArea23').fadeOut(200); });
+
       $('#d24').click(async function(){ await popup_day(24); $('#modalArea24').fadeIn(200); });
       $('#closeModal24 , #modalBg24').click(function(){ $('#modalArea24').fadeOut(200); });
 
@@ -1304,6 +2273,38 @@
       $('#d26').click(async function(){ await popup_day(26); $('#modalArea26').fadeIn(200); });
       $('#closeModal26 , #modalBg26').click(function(){ $('#modalArea26').fadeOut(200); });
 
+      $('#d27').click(async function(){ await popup_day(27); $('#modalArea27').fadeIn(200); });
+      $('#closeModal27 , #modalBg27').click(function(){ $('#modalArea27').fadeOut(200); });
+
+      $('#d28').click(async function(){ await popup_day(28); $('#modalArea28').fadeIn(200); });
+      $('#closeModal28 , #modalBg28').click(function(){ $('#modalArea28').fadeOut(200); });
+      
+      $('#d29').click(async function(){ await popup_day(29); $('#modalArea29').fadeIn(200); });
+      $('#closeModal29 , #modalBg29').click(function(){ $('#modalArea29').fadeOut(200); });
+    
+      $('#d30').click(async function(){ await popup_day(30); $('#modalArea30').fadeIn(200); });
+      $('#closeModal30 , #modalBg30').click(function(){ $('#modalArea30').fadeOut(200); });
+
+      $('#d31').click(async function(){ await popup_day(31); $('#modalArea31').fadeIn(200); });
+      $('#closeModal31 , #modalBg31').click(function(){ $('#modalArea31').fadeOut(200); });
+      
+      $('#d32').click(async function(){ await popup_day(32); $('#modalArea32').fadeIn(200); });
+      $('#closeModal32 , #modalBg32').click(function(){ $('#modalArea32').fadeOut(200); });
+
+      $('#d33').click(async function(){ await popup_day(33); $('#modalArea33').fadeIn(200); });
+      $('#closeModal33 , #modalBg33').click(function(){ $('#modalArea33').fadeOut(200); });
+
+      $('#d34').click(async function(){ await popup_day(34); $('#modalArea34').fadeIn(200); });
+      $('#closeModal34 , #modalBg34').click(function(){ $('#modalArea34').fadeOut(200); });
+      
+      $('#d35').click(async function(){ await popup_day(35); $('#modalArea35').fadeIn(200); });
+      $('#closeModal35 , #modalBg35').click(function(){ $('#modalArea35').fadeOut(200); });
+
+      $('#d36').click(async function(){ await popup_day(36); $('#modalArea36').fadeIn(200); });
+      $('#closeModal36 , #modalBg36').click(function(){ $('#modalArea36').fadeOut(200); });
+
+      $('#d37').click(async function(){ await popup_day(37); $('#modalArea37').fadeIn(200); });
+      $('#closeModal37 , #modalBg37').click(function(){ $('#modalArea37').fadeOut(200); });
 
     });
 
@@ -1327,6 +2328,232 @@
     document.querySelector("#delete26_3").onclick = async (event) => { await deleteSche(26, 3) };
     document.querySelector("#delete26_4").onclick = async (event) => { await deleteSche(26, 4) };
     document.querySelector("#delete26_5").onclick = async (event) => { await deleteSche(26, 5) };
+
+
+
+    // ポップアップの削除ボタンを押すとdeleteSche関数が起動
+    document.querySelector("#delete1_1").onclick = async (event) => { await deleteSche(1, 1) };
+    document.querySelector("#delete1_2").onclick = async (event) => { await deleteSche(1, 2) };
+    document.querySelector("#delete1_3").onclick = async (event) => { await deleteSche(1, 3) };
+    document.querySelector("#delete1_4").onclick = async (event) => { await deleteSche(1, 4) };
+    document.querySelector("#delete1_5").onclick = async (event) => { await deleteSche(1, 5) };
+
+    document.querySelector("#delete2_1").onclick = async (event) => { await deleteSche(2, 1) };
+    document.querySelector("#delete2_2").onclick = async (event) => { await deleteSche(2, 2) };
+    document.querySelector("#delete2_3").onclick = async (event) => { await deleteSche(2, 3) };
+    document.querySelector("#delete2_4").onclick = async (event) => { await deleteSche(2, 4) };
+    document.querySelector("#delete2_5").onclick = async (event) => { await deleteSche(2, 5) };
+
+    document.querySelector("#delete3_1").onclick = async (event) => { await deleteSche(3, 1) };
+    document.querySelector("#delete3_2").onclick = async (event) => { await deleteSche(3, 2) };
+    document.querySelector("#delete3_3").onclick = async (event) => { await deleteSche(3, 3) };
+    document.querySelector("#delete3_4").onclick = async (event) => { await deleteSche(3, 4) };
+    document.querySelector("#delete3_5").onclick = async (event) => { await deleteSche(3, 5) };
+
+    document.querySelector("#delete4_1").onclick = async (event) => { await deleteSche(4, 1) };
+    document.querySelector("#delete4_2").onclick = async (event) => { await deleteSche(4, 2) };
+    document.querySelector("#delete4_3").onclick = async (event) => { await deleteSche(4, 3) };
+    document.querySelector("#delete4_4").onclick = async (event) => { await deleteSche(4, 4) };
+    document.querySelector("#delete4_5").onclick = async (event) => { await deleteSche(4, 5) };
+
+    document.querySelector("#delete5_1").onclick = async (event) => { await deleteSche(5, 1) };
+    document.querySelector("#delete5_2").onclick = async (event) => { await deleteSche(5, 2) };
+    document.querySelector("#delete5_3").onclick = async (event) => { await deleteSche(5, 3) };
+    document.querySelector("#delete5_4").onclick = async (event) => { await deleteSche(5, 4) };
+    document.querySelector("#delete5_5").onclick = async (event) => { await deleteSche(5, 5) };
+    
+    document.querySelector("#delete6_1").onclick = async (event) => { await deleteSche(6, 1) };
+    document.querySelector("#delete6_2").onclick = async (event) => { await deleteSche(6, 2) };
+    document.querySelector("#delete6_3").onclick = async (event) => { await deleteSche(6, 3) };
+    document.querySelector("#delete6_4").onclick = async (event) => { await deleteSche(6, 4) };
+    document.querySelector("#delete6_5").onclick = async (event) => { await deleteSche(6, 5) };
+
+    document.querySelector("#delete7_1").onclick = async (event) => { await deleteSche(7, 1) };
+    document.querySelector("#delete7_2").onclick = async (event) => { await deleteSche(7, 2) };
+    document.querySelector("#delete7_3").onclick = async (event) => { await deleteSche(7, 3) };
+    document.querySelector("#delete7_4").onclick = async (event) => { await deleteSche(7, 4) };
+    document.querySelector("#delete7_5").onclick = async (event) => { await deleteSche(7, 5) };
+
+    document.querySelector("#delete8_1").onclick = async (event) => { await deleteSche(8, 1) };
+    document.querySelector("#delete8_2").onclick = async (event) => { await deleteSche(8, 2) };
+    document.querySelector("#delete8_3").onclick = async (event) => { await deleteSche(8, 3) };
+    document.querySelector("#delete8_4").onclick = async (event) => { await deleteSche(8, 4) };
+    document.querySelector("#delete8_5").onclick = async (event) => { await deleteSche(8, 5) };
+    
+    document.querySelector("#delete9_1").onclick = async (event) => { await deleteSche(9, 1) };
+    document.querySelector("#delete9_2").onclick = async (event) => { await deleteSche(9, 2) };
+    document.querySelector("#delete9_3").onclick = async (event) => { await deleteSche(9, 3) };
+    document.querySelector("#delete9_4").onclick = async (event) => { await deleteSche(9, 4) };
+    document.querySelector("#delete9_5").onclick = async (event) => { await deleteSche(9, 5) };
+
+    document.querySelector("#delete10_1").onclick = async (event) => { await deleteSche(10, 1) };
+    document.querySelector("#delete10_2").onclick = async (event) => { await deleteSche(10, 2) };
+    document.querySelector("#delete10_3").onclick = async (event) => { await deleteSche(10, 3) };
+    document.querySelector("#delete10_4").onclick = async (event) => { await deleteSche(10, 4) };
+    document.querySelector("#delete10_5").onclick = async (event) => { await deleteSche(10, 5) };
+
+    document.querySelector("#delete11_1").onclick = async (event) => { await deleteSche(11, 1) };
+    document.querySelector("#delete11_2").onclick = async (event) => { await deleteSche(11, 2) };
+    document.querySelector("#delete11_3").onclick = async (event) => { await deleteSche(11, 3) };
+    document.querySelector("#delete11_4").onclick = async (event) => { await deleteSche(11, 4) };
+    document.querySelector("#delete11_5").onclick = async (event) => { await deleteSche(11, 5) };
+    
+    document.querySelector("#delete12_1").onclick = async (event) => { await deleteSche(12, 1) };
+    document.querySelector("#delete12_2").onclick = async (event) => { await deleteSche(12, 2) };
+    document.querySelector("#delete12_3").onclick = async (event) => { await deleteSche(12, 3) };
+    document.querySelector("#delete12_4").onclick = async (event) => { await deleteSche(21, 4) };
+    document.querySelector("#delete12_5").onclick = async (event) => { await deleteSche(12, 5) };
+
+    document.querySelector("#delete13_1").onclick = async (event) => { await deleteSche(13, 1) };
+    document.querySelector("#delete13_2").onclick = async (event) => { await deleteSche(13, 2) };
+    document.querySelector("#delete13_3").onclick = async (event) => { await deleteSche(13, 3) };
+    document.querySelector("#delete13_4").onclick = async (event) => { await deleteSche(13, 4) };
+    document.querySelector("#delete13_5").onclick = async (event) => { await deleteSche(13, 5) };
+
+    document.querySelector("#delete14_1").onclick = async (event) => { await deleteSche(14, 1) };
+    document.querySelector("#delete14_2").onclick = async (event) => { await deleteSche(14, 2) };
+    document.querySelector("#delete14_3").onclick = async (event) => { await deleteSche(14, 3) };
+    document.querySelector("#delete14_4").onclick = async (event) => { await deleteSche(14, 4) };
+    document.querySelector("#delete14_5").onclick = async (event) => { await deleteSche(14, 5) };
+    
+    document.querySelector("#delete15_1").onclick = async (event) => { await deleteSche(15, 1) };
+    document.querySelector("#delete15_2").onclick = async (event) => { await deleteSche(15, 2) };
+    document.querySelector("#delete15_3").onclick = async (event) => { await deleteSche(15, 3) };
+    document.querySelector("#delete15_4").onclick = async (event) => { await deleteSche(15, 4) };
+    document.querySelector("#delete15_5").onclick = async (event) => { await deleteSche(15, 5) };
+
+    document.querySelector("#delete16_1").onclick = async (event) => { await deleteSche(16, 1) };
+    document.querySelector("#delete16_2").onclick = async (event) => { await deleteSche(16, 2) };
+    document.querySelector("#delete16_3").onclick = async (event) => { await deleteSche(16, 3) };
+    document.querySelector("#delete16_4").onclick = async (event) => { await deleteSche(16, 4) };
+    document.querySelector("#delete16_5").onclick = async (event) => { await deleteSche(16, 5) };
+
+    document.querySelector("#delete17_1").onclick = async (event) => { await deleteSche(17, 1) };
+    document.querySelector("#delete17_2").onclick = async (event) => { await deleteSche(17, 2) };
+    document.querySelector("#delete17_3").onclick = async (event) => { await deleteSche(17, 3) };
+    document.querySelector("#delete17_4").onclick = async (event) => { await deleteSche(17, 4) };
+    document.querySelector("#delete17_5").onclick = async (event) => { await deleteSche(17, 5) };
+    
+
+    document.querySelector("#delete18_1").onclick = async (event) => { await deleteSche(18, 1) };
+    document.querySelector("#delete18_2").onclick = async (event) => { await deleteSche(18, 2) };
+    document.querySelector("#delete18_3").onclick = async (event) => { await deleteSche(18, 3) };
+    document.querySelector("#delete18_4").onclick = async (event) => { await deleteSche(18, 4) };
+    document.querySelector("#delete18_5").onclick = async (event) => { await deleteSche(18, 5) };
+
+    document.querySelector("#delete19_1").onclick = async (event) => { await deleteSche(19, 1) };
+    document.querySelector("#delete19_2").onclick = async (event) => { await deleteSche(19, 2) };
+    document.querySelector("#delete19_3").onclick = async (event) => { await deleteSche(19, 3) };
+    document.querySelector("#delete19_4").onclick = async (event) => { await deleteSche(19, 4) };
+    document.querySelector("#delete19_5").onclick = async (event) => { await deleteSche(19, 5) };
+
+    document.querySelector("#delete20_1").onclick = async (event) => { await deleteSche(20, 1) };
+    document.querySelector("#delete20_2").onclick = async (event) => { await deleteSche(20, 2) };
+    document.querySelector("#delete20_3").onclick = async (event) => { await deleteSche(20, 3) };
+    document.querySelector("#delete20_4").onclick = async (event) => { await deleteSche(20, 4) };
+    document.querySelector("#delete20_5").onclick = async (event) => { await deleteSche(20, 5) };
+    
+    document.querySelector("#delete21_1").onclick = async (event) => { await deleteSche(21, 1) };
+    document.querySelector("#delete21_2").onclick = async (event) => { await deleteSche(21, 2) };
+    document.querySelector("#delete21_3").onclick = async (event) => { await deleteSche(21, 3) };
+    document.querySelector("#delete21_4").onclick = async (event) => { await deleteSche(21, 4) };
+    document.querySelector("#delete21_5").onclick = async (event) => { await deleteSche(21, 5) };
+
+    document.querySelector("#delete22_1").onclick = async (event) => { await deleteSche(22, 1) };
+    document.querySelector("#delete22_2").onclick = async (event) => { await deleteSche(22, 2) };
+    document.querySelector("#delete22_3").onclick = async (event) => { await deleteSche(22, 3) };
+    document.querySelector("#delete22_4").onclick = async (event) => { await deleteSche(22, 4) };
+    document.querySelector("#delete22_5").onclick = async (event) => { await deleteSche(22, 5) };
+
+    document.querySelector("#delete23_1").onclick = async (event) => { await deleteSche(23, 1) };
+    document.querySelector("#delete23_2").onclick = async (event) => { await deleteSche(23, 2) };
+    document.querySelector("#delete23_3").onclick = async (event) => { await deleteSche(23, 3) };
+    document.querySelector("#delete23_4").onclick = async (event) => { await deleteSche(23, 4) };
+    document.querySelector("#delete23_5").onclick = async (event) => { await deleteSche(23, 5) };
+    
+    document.querySelector("#delete24_1").onclick = async (event) => { await deleteSche(24, 1) };
+    document.querySelector("#delete24_2").onclick = async (event) => { await deleteSche(24, 2) };
+    document.querySelector("#delete24_3").onclick = async (event) => { await deleteSche(24, 3) };
+    document.querySelector("#delete24_4").onclick = async (event) => { await deleteSche(24, 4) };
+    document.querySelector("#delete24_5").onclick = async (event) => { await deleteSche(24, 5) };
+
+    document.querySelector("#delete25_1").onclick = async (event) => { await deleteSche(25, 1) };
+    document.querySelector("#delete25_2").onclick = async (event) => { await deleteSche(25, 2) };
+    document.querySelector("#delete25_3").onclick = async (event) => { await deleteSche(25, 3) };
+    document.querySelector("#delete25_4").onclick = async (event) => { await deleteSche(25, 4) };
+    document.querySelector("#delete25_5").onclick = async (event) => { await deleteSche(25, 5) };
+
+    document.querySelector("#delete26_1").onclick = async (event) => { await deleteSche(26, 1) };
+    document.querySelector("#delete26_2").onclick = async (event) => { await deleteSche(26, 2) };
+    document.querySelector("#delete26_3").onclick = async (event) => { await deleteSche(26, 3) };
+    document.querySelector("#delete26_4").onclick = async (event) => { await deleteSche(26, 4) };
+    document.querySelector("#delete26_5").onclick = async (event) => { await deleteSche(26, 5) };
+    
+    document.querySelector("#delete27_1").onclick = async (event) => { await deleteSche(27, 1) };
+    document.querySelector("#delete27_2").onclick = async (event) => { await deleteSche(27, 2) };
+    document.querySelector("#delete27_3").onclick = async (event) => { await deleteSche(27, 3) };
+    document.querySelector("#delete27_4").onclick = async (event) => { await deleteSche(27, 4) };
+    document.querySelector("#delete27_5").onclick = async (event) => { await deleteSche(27, 5) };
+
+    document.querySelector("#delete28_1").onclick = async (event) => { await deleteSche(28, 1) };
+    document.querySelector("#delete28_2").onclick = async (event) => { await deleteSche(28, 2) };
+    document.querySelector("#delete28_3").onclick = async (event) => { await deleteSche(28, 3) };
+    document.querySelector("#delete28_4").onclick = async (event) => { await deleteSche(28, 4) };
+    document.querySelector("#delete28_5").onclick = async (event) => { await deleteSche(28, 5) };
+
+    document.querySelector("#delete29_1").onclick = async (event) => { await deleteSche(29, 1) };
+    document.querySelector("#delete29_2").onclick = async (event) => { await deleteSche(29, 2) };
+    document.querySelector("#delete29_3").onclick = async (event) => { await deleteSche(29, 3) };
+    document.querySelector("#delete29_4").onclick = async (event) => { await deleteSche(29, 4) };
+    document.querySelector("#delete29_5").onclick = async (event) => { await deleteSche(29, 5) };
+
+    document.querySelector("#delete30_1").onclick = async (event) => { await deleteSche(30, 1) };
+    document.querySelector("#delete30_2").onclick = async (event) => { await deleteSche(30, 2) };
+    document.querySelector("#delete30_3").onclick = async (event) => { await deleteSche(30, 3) };
+    document.querySelector("#delete30_4").onclick = async (event) => { await deleteSche(30, 4) };
+    document.querySelector("#delete30_5").onclick = async (event) => { await deleteSche(30, 5) };
+
+    document.querySelector("#delete31_1").onclick = async (event) => { await deleteSche(31, 1) };
+    document.querySelector("#delete31_2").onclick = async (event) => { await deleteSche(31, 2) };
+    document.querySelector("#delete31_3").onclick = async (event) => { await deleteSche(31, 3) };
+    document.querySelector("#delete31_4").onclick = async (event) => { await deleteSche(31, 4) };
+    document.querySelector("#delete31_5").onclick = async (event) => { await deleteSche(31, 5) };
+
+    document.querySelector("#delete32_1").onclick = async (event) => { await deleteSche(32, 1) };
+    document.querySelector("#delete32_2").onclick = async (event) => { await deleteSche(32, 2) };
+    document.querySelector("#delete32_3").onclick = async (event) => { await deleteSche(32, 3) };
+    document.querySelector("#delete32_4").onclick = async (event) => { await deleteSche(32, 4) };
+    document.querySelector("#delete32_5").onclick = async (event) => { await deleteSche(32, 5) };
+
+    document.querySelector("#delete33_1").onclick = async (event) => { await deleteSche(33, 1) };
+    document.querySelector("#delete33_2").onclick = async (event) => { await deleteSche(33, 2) };
+    document.querySelector("#delete33_3").onclick = async (event) => { await deleteSche(33, 3) };
+    document.querySelector("#delete33_4").onclick = async (event) => { await deleteSche(33, 4) };
+    document.querySelector("#delete33_5").onclick = async (event) => { await deleteSche(33, 5) };
+
+    document.querySelector("#delete34_1").onclick = async (event) => { await deleteSche(34, 1) };
+    document.querySelector("#delete34_2").onclick = async (event) => { await deleteSche(34, 2) };
+    document.querySelector("#delete34_3").onclick = async (event) => { await deleteSche(34, 3) };
+    document.querySelector("#delete34_4").onclick = async (event) => { await deleteSche(34, 4) };
+    document.querySelector("#delete34_5").onclick = async (event) => { await deleteSche(34, 5) };
+
+    document.querySelector("#delete35_1").onclick = async (event) => { await deleteSche(35, 1) };
+    document.querySelector("#delete35_2").onclick = async (event) => { await deleteSche(35, 2) };
+    document.querySelector("#delete35_3").onclick = async (event) => { await deleteSche(35, 3) };
+    document.querySelector("#delete35_4").onclick = async (event) => { await deleteSche(35, 4) };
+    document.querySelector("#delete35_5").onclick = async (event) => { await deleteSche(35, 5) };
+
+    document.querySelector("#delete36_1").onclick = async (event) => { await deleteSche(36, 1) };
+    document.querySelector("#delete36_2").onclick = async (event) => { await deleteSche(36, 2) };
+    document.querySelector("#delete36_3").onclick = async (event) => { await deleteSche(36, 3) };
+    document.querySelector("#delete36_4").onclick = async (event) => { await deleteSche(36, 4) };
+    document.querySelector("#delete36_5").onclick = async (event) => { await deleteSche(36, 5) };
+
+    document.querySelector("#delete37_1").onclick = async (event) => { await deleteSche(37, 1) };
+    document.querySelector("#delete37_2").onclick = async (event) => { await deleteSche(37, 2) };
+    document.querySelector("#delete37_3").onclick = async (event) => { await deleteSche(37, 3) };
+    document.querySelector("#delete37_4").onclick = async (event) => { await deleteSche(37, 4) };
+    document.querySelector("#delete37_5").onclick = async (event) => { await deleteSche(37, 5) };
     
   </script>
 

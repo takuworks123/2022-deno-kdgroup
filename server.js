@@ -5,11 +5,8 @@ import { createClient } from 'https://esm.sh/@supabase/supabase-js@1.34.0';
 let url = 'https://ekzwclcfheomwmnteywk.supabase.co';
 let anon_key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrendjbGNmaGVvbXdtbnRleXdrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njc1NzE2NjQsImV4cCI6MTk4MzE0NzY2NH0.5ZeHJT23ZrIzOWJQtP4AncFpqCMp-lB2xbxXF592zpg';
 const supabase = createClient(url, anon_key);
-let obj;
-let main_obj;
 
 let login_checks = [];
-let invite_codes = [];
 
 serve(async (req) => {
   const pathname = new URL(req.url).pathname;
@@ -67,21 +64,23 @@ serve(async (req) => {
 
   if (req.method === "POST" && pathname === "/join_calendar") {
     const requestJson = await req.json();
+    let sp;
+    sp = await supabase // invite_codeテーブルへ問い合わせ
+      .from('invite_code')
+      .select()
+      .eq( 'code', requestJson.invite_code );
 
-    for (let i = 0; i < invite_codes.length; i++){
-      let data = invite_codes[i].split('@@');
-      if (data[1] == requestJson.invite_code){
+    if (sp.data.length == 1){
+      sp = await supabase // userテーブルへ問い合わせ
+        .from('user')
+        .update({ group: `${sp.data[0].group}`})
+        .eq( 'username', requestJson.username );
 
-        let sp = await supabase // userテーブルへ問い合わせ
-          .from('user')
-          .update({ group: `${data[0]}`})
-          .eq( 'username', requestJson.username );
+      return new Response(sp.data[0].group);
 
-        return new Response(data[0]);
-      }
+    }else{
+      return new Response('-1');
     }
-
-    return new Response('-1');
   }
 
   if (req.method === "POST" && pathname === "/login") {
@@ -238,74 +237,47 @@ serve(async (req) => {
 
   if (req.method === "POST" && pathname === "/invite_check") {
     const requestJson = await req.json();
-    for (let i = 0; i < invite_codes.length; i++){
-      let data = invite_codes[i].split('@@');
-      if (data[0] == requestJson.group){
-        return new Response(data[1]);
-      }
+    let sp = await supabase // invite_codeテーブルへ問い合わせ
+      .from('invite_code')
+      .select()
+      .eq('group', requestJson.group);
+
+    if (sp.data.length != 0){
+      return new Response(sp.data[0].code);
+
+    }else{
+      return new Response('-1');
     }
-    return new Response('-1');
   }
 
   if (req.method === "POST" && pathname === "/invite_enable") {
     const requestJson = await req.json();
-    for (let i = 0; i < invite_codes.length; i++){
-      let data = invite_codes[i].split('@@');
-      if (data[0] == requestJson.group){
-        return new Response(data[1]);
-      }
-    }
+    let sp = await supabase // invite_codeテーブルへ問い合わせ
+      .from('invite_code')
+      .select()
+      .eq('group', requestJson.group);
 
-    invite_codes.push(requestJson.group + "@@" + requestJson.rand_str);
-    console.log(invite_codes);
-    return new Response('0');
+    if (sp.data.length != 0){
+      return new Response(sp.data[0].code);
+
+    }else{
+      let sp1 = await supabase // invite_codeへデータ挿入
+        .from('invite_code')
+        .insert({ group: `${requestJson.group}`, code: `${requestJson.rand_str}` });
+        
+      return new Response('0');
+    }
   }
 
   if (req.method === "POST" && pathname === "/invite_disable") {
     const requestJson = await req.json();
-    for (let i = 0; i < invite_codes.length; i++){
-      let data = invite_codes[i].split('@@');
-
-      if (data[0] == requestJson.group){
-        let temp1 = invite_codes, temp2 = invite_codes;
-        temp1 = temp1.slice(0, i);
-        temp2 = temp2.slice(i + 1);
-        invite_codes = temp1.concat(temp2);
-        console.log(invite_codes);
-        return new Response();
-      }
-    }
+    let sp = await supabase // invite_codeテーブルへ問い合わせ
+      .from('invite_code')
+      .delete()
+      .match({ group: `${requestJson.group}` });
 
     return new Response();
   }
-
-
-
-
-
-
-
-
-
-  //　コーディネート初期化
-  if (req.method === "GET" && pathname === "/reset_obj") {
-    main_obj = await supabase.from('calendar').select().rangeGt('sche_start', '[2022-11-01 00:00, 2022-11-01 00:00)');
-  }
-
-  // データベース更新確認
-  async function base_select() {
-    main_obj = await supabase.from('calendar').select().rangeGt('sche_start', '[2022-11-01 00:00, 2022-11-01 00:00)');
-    return main_obj;
-  };
-
-  // 現在の投稿数を確認
-  if (req.method === "GET" && pathname === "/code_info") {
-    obj = await base_select();
-    if (obj.error == null) {
-      let max_id = obj.data.length-1;
-      return new Response(max_id);
-    }
-  };
 
 
 

@@ -40,3 +40,102 @@
       transparent 105px,  transparent 129px, 
       rgba(0, 0, 0, 0.04) 130px,  rgba(0, 0, 0, 0.04) 130px);
 }
+
+
+
+
+
+
+
+body{
+  padding: 0px 15px;
+  width: 100%;
+  margin: auto;
+}
+
+
+.header{
+  margin: auto;
+}
+
+
+img{
+  background-color: #727272;
+}
+
+
+input {
+  width: 50%; /*親要素いっぱい広げる*/
+  padding: 10px 15px; /*ボックスを大きくする*/
+  font-size: 16px;
+  border-radius: 3px; /*ボックス角の丸み*/
+  border: 2px solid #ddd; /*枠線*/
+  box-sizing: border-box; /*横幅の解釈をpadding, borderまでとする*/
+}
+
+
+
+
+
+
+
+
+
+.login {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 20px;
+  border: 2px solid #d90429;
+  background: #d90429;
+}
+.login:hover {
+  background: #fff;
+  color: #d90429
+}
+
+
+
+
+
+.register_page {
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  overflow: hidden;
+  border-radius: 5px;
+  border: none;
+  background-color: #6c757d
+}
+.register_page:hover {
+  border-radius: 5px;
+  padding-right: 24px;
+  padding-left:8px;
+}
+.register_page:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.register_page:after {
+  content: "\00BB";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  line-height: 40px;
+  top: 0;
+  right: -20px;
+  transition: 0.4s;
+}
